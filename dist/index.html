@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="./index.de7da63a.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Upload Files</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <main class="main">
+      <div class="main__library">
+
+        <div class="list-book list-book--favorite">
+          <h2 class="list-book__title">Любимые книги</h2>
+          <div class="list-book__box">
+            <ul class="list-book__list"></ul>
+            <div class="list-book__drop" id="favorite">
+              <img class="list-book__drop-image" src="https://img.icons8.com/dotty/80/ffffff/down-squared.png">
+            </div>
+          </div>
+        </div>
+
+        <div class="list-book list-book--all">
+          <h2 class="list-book__title">Список книг</h2>
+          <div class="list-book__box">
+            <ul class="list-book__list"></ul>
+            <div class="list-book__drop" id="all">
+              <img class="list-book__drop-image" src="https://img.icons8.com/dotty/80/ffffff/down-squared.png">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <form method="post" accept-charset="UTF-8" class="form form--write-book">
+        <div class="form__controls">
+          <label for="write-book" class="form__label">
+            <input type="radio" name="method" id="write-book" class="form__radio" checked="">
+            <span class="form__text">Написать самому</span>
+          </label>
+          <label for="select-book" class="form__label">
+            <input type="radio" name="method" id="select-book" class="form__radio">
+            <span class="form__text">Выбрать из файла</span>
+          </label>
+        </div>
+
+        <div class="form__select-book">
+          <label for="select-btn" class="form__label-file btn">Выберите файл</label>
+          <input type="file" name="file" id="select-btn" accept=".txt" class="form__input-file">
+          <p class="form__select-file-text"></p>
+        </div>
+        <div class="form__write-book">
+          <label class="form__label" for="write-title">Введите название книги</label>
+          <input class="form__input-fields" type="text" name="title" id="write-title">
+          <label class="form__label form__label--text" for="write-text">Введите текст книги</label>
+          <textarea class="form__input-fields form__write-text" name="text" id="write-text"></textarea>
+        </div>
+
+
+        <button type="submit" value="" name="submit" class="form__btn btn">Сохранить книгу</button>
+      </form>
+
+      <div class="modal modal--edit-book">
+        <div class="modal__content"></div>
+      </div>
+    </main>
+  </div>
+  <script src="./index.38661719.js" defer=""></script>
+</body>
+
+</html>
