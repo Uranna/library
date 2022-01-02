@@ -1,0 +1,87 @@
+.form {
+  max-width: 500px;
+  width: 100%;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__label {
+    &>.form__radio {
+      display: none;
+    }
+
+    &>.form__text {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        border: 1px solid $brown;
+        border-radius: 50%;
+        margin-right: 0.5em;
+      }
+    }
+
+    &>.form__radio:checked + .form__text::before {
+      background: $brown;
+    }
+  }
+
+  &__controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__write-book,
+  &__select-book {
+    margin: 2rem 0;
+    display: none;
+  }
+
+  &__label {
+    margin-bottom: 1rem;
+
+    &--text {
+      margin-top: 2rem;
+    }
+  }
+
+  &__input-file {
+    display: none;
+  }
+
+  &__label-file {
+    display: block;
+    text-align: center;
+  }
+
+  &__write-text {
+    height: 200px;
+  }
+
+  &__select-file-text {
+    &--error {
+      color: red;
+
+    }
+  }
+
+  &--write-book {
+    .form__write-book {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+  &--select-book {
+    .form__select-book {
+      display: block;
+    }
+  }
+}
