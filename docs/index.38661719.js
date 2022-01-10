@@ -465,7 +465,7 @@ var _dragOnDrop = require("./src/script/dragOnDrop");
 var _button = require("./src/script/button");
 var _stylesScss = require("./src/styles.scss");
 
-},{"./src/styles.scss":"2G57T","./src/script/bookPublication":"122SZ","./src/script/createNewBook":"dsYe0","./src/script/dragOnDrop":"6TjOc","./src/script/button":"esyGm"}],"2G57T":[function() {},{}],"122SZ":[function(require,module,exports) {
+},{"./src/script/bookPublication":"122SZ","./src/script/createNewBook":"dsYe0","./src/script/dragOnDrop":"6TjOc","./src/script/button":"esyGm","./src/styles.scss":"2G57T"}],"122SZ":[function(require,module,exports) {
 var _library = require("./library");
 var _appendCard = require("./appendCard");
 _appendCard.$areaAllBook.querySelector('.list-book__list').innerHTML = '';
@@ -473,7 +473,7 @@ _appendCard.$areaFavoriteBook.querySelector('.list-book__list').innerHTML = '';
 _library.library.get().forEach((book)=>{
     const html = _appendCard.createCard(book);
     if (book.favorite) _appendCard.appendCard(html, _appendCard.$areaFavoriteBook);
-    _appendCard.appendCard(html, _appendCard.$areaAllBook);
+    else _appendCard.appendCard(html, _appendCard.$areaAllBook);
 });
 
 },{"./library":"j4BrA","./appendCard":"i9GQ7"}],"j4BrA":[function(require,module,exports) {
@@ -681,26 +681,15 @@ let dragger;
         ];
         if (dragger.closest('.list-book') !== area) {
             newBooks = newBooks.map((item)=>{
-                if (item.id == dragger.dataset.id) {
-                    if (item.favorite && e.target.id === 'all') {
-                        _appendCard.$areaFavoriteBook.querySelector('.list-book__list').removeChild(dragger);
-                        return {
-                            ...item,
-                            favorite: false
-                        };
-                    } else if (!item.favorite && e.target.id === 'favorite') {
-                        const node = dragger.cloneNode(true);
-                        _appendCard.$areaFavoriteBook.querySelector('.list-book__list').append(node);
-                        return {
-                            ...item,
-                            favorite: true
-                        };
-                    }
-                }
+                if (item.id == dragger.dataset.id) return {
+                    ...item,
+                    favorite: !item.favorite
+                };
                 return item;
             });
             _library.library.set(newBooks);
         }
+        area.querySelector('.list-book__list').append(dragger);
     });
 });
 
@@ -800,6 +789,6 @@ const list = document.querySelectorAll('.list-book__list');
     });
 });
 
-},{"./library":"j4BrA"}]},["5UGAA","7BQdY"], "7BQdY", "parcelRequire5495")
+},{"./library":"j4BrA"}],"2G57T":[function() {},{}]},["5UGAA","7BQdY"], "7BQdY", "parcelRequire5495")
 
 //# sourceMappingURL=index.38661719.js.map
