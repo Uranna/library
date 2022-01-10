@@ -9,5 +9,5 @@ library.get().forEach(book => {
   if (book.favorite) {
     appendCard(html, $areaFavoriteBook);
   }
-  appendCard(html, $areaAllBook);
+  else appendCard(html, $areaAllBook);
 })

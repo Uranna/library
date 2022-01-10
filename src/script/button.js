@@ -37,10 +37,7 @@ $modal.addEventListener('submit', (e) => {
       const title = formData.get('title') || 'book`s title'
       card.querySelector('.card-book__name').innerText = title;
     }
-
   })
-
-
 })
 
 function readBookModal(book) {
